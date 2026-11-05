@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alternar Imágenes</title>
+  <style>
+    /* Aplicamos el centrado que vimos antes */
+    .contenedor {
+      display: flex;
+      flex-direction: column; /* Alinea el botón y la imagen en vertical */
+      align-items: center;    /* Centra horizontalmente */
+      justify-content: center; /* Centra verticalmente */
+      gap: 20px;              /* Espacio entre el botón y la imagen */
+      height: 100vh;          /* Usa todo el alto de la pantalla */
+    }
+
+    img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <button id="btn-cambiar">Cambiar Imagen</button>
+    <!-- Iniciamos con la primera imagen cargada -->
+    <img id="imagen" src="img/wall_2.jpg" alt="Imagen 1">
+  </div>
+
+  <script>
+    // 1. Guardamos las URLs de las dos imágenes en variables
+    const img1 = "img/wall_2.jpg";
+    const img2 = "img/wall_3.jpg";
+
+    // 2. Seleccionamos el botón y la imagen del HTML
+    const boton = document.getElementById('btn-cambiar');
+    const imagen = document.getElementById('imagen');
+
+    // 3. Escuchamos el clic en el botón
+    boton.addEventListener('click', () => {
+      // Si la imagen actual es la 1, cambia a la 2; si no, vuelve a la 1
+      if (imagen.src ===img1) {
+        imagen.src = img2;
+        imagen.alt = "Imagen 2";
+      } else {
+        imagen.src = img1;
+        imagen.alt = "Imagen 1";
+      }
+    });
+  </script>
+
+</body>
+</html>
